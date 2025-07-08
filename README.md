@@ -1,100 +1,107 @@
-# GPU Performance and Crypto Mining Analysis
+# GPU Mining Efficiency Analysis
 
 This project analyzes GPU performance, energy efficiency, and algorithm support within the context of cryptocurrency mining.
 
-Dataset used: [GPU Performance and Hashrate Dataset (Crypto) - by Anthony Therrien](https://www.kaggle.com/datasets/anthonytherrien/gpu-performance-and-hashrate-dataset-crypto)
+Dataset used:  
+[GPU Performance and Hashrate Dataset (Crypto) - Anthony Therrien](https://www.kaggle.com/datasets/anthonytherrien/gpu-performance-and-hashrate-dataset-crypto)
 
 ---
 
-## Project Objective
+## 🎯 Project Objective
 
-The goal is to explore the mining efficiency of various GPU models by evaluating:
-- The number of algorithms supported per GPU
-- Energy consumption across mining algorithms
-- Energy-based efficiency metrics
-- Identification of top-performing GPUs
+To evaluate mining performance of various GPUs by measuring:
+- The number of supported mining algorithms per GPU
+- Power consumption across algorithms
+- Efficiency metrics (hashrate per watt)
+- Top-performing GPUs in terms of energy and speed
 
 ---
 
-## Directory Structure
+## 📁 Directory Structure
 
+```text
 GPU_energy/
-├── data/
-│ └── (Raw CSV files)
-├── images/
-│ ├── energy_efficiency_best_gpus.png
-│ ├── gpu_algo_supported_count.png
-│ ├── gpu_energy_consumption_boxplot.png
-│ ├── top5_efficient_gpus.png
+├── data/                          # Raw CSV files
+├── images/                        # Exported plots
+│   ├── energy_efficiency_best_gpus.png
+│   ├── gpu_algo_supported_count.png
+│   ├── gpu_energy_consumption_boxplot.png
+│   └── top5_efficient_gpus.png
 ├── notebook/
-│ └── gpu_energy.ipynb
-├── README.md
-└── requirements.txt
+│   └── gpu_energy.ipynb           # Main analysis notebook
+├── requirements.txt              # Python dependencies
+└── README.md
+```
 
-
-All images were generated through exploratory data analysis.  
-Notebook includes feature calculations, cleaning, and visual output generation.
-
----
-
-## Dataset Summary
-
-- Total GPUs: 160+
-- Columns: 110+
-  - Hashrate metrics for 40+ mining algorithms
-  - Power consumption per algorithm (Watt)
-  - GPU model categories
-  - Energy cost estimates
+All plots are created via exploratory data analysis (EDA) using Jupyter.
 
 ---
 
-## Methodology
+## 📊 Dataset Summary
 
-- **Cleaning**: Removed columns with excess NaNs, handled outliers.
-- **Feature Engineering**: Only based on **existing** columns, no artificial features were added.
-- **Key Metrics**:
-  - `algo_count`: Number of supported algorithms per GPU
-  - `algo_efficiency`: Total hash performance divided by total power
-- **EDA**: Visualized top GPUs by efficiency, algorithm support, and energy distribution
-
----
-
-## Highlights
-
-- **Most Efficient GPU**: `6400` — belongs to AMD
-- **Most Algorithm Support**: `3080Ti` and `3090` lead
-- **Most Power-Hungry Algorithms**: `Ethash`, `Autolykos2`, `Octopus`
-- **Boxplot Insight**: Several algorithms have extreme outliers in power usage
+- 160+ unique GPU models
+- 110+ columns with:
+  - Hashrate metrics for 40+ algorithms
+  - Power consumption in Watts
+  - GPU manufacturer and model metadata
+  - Energy cost estimates (per algorithm)
 
 ---
 
-## Visual Outputs (Located in `/images`)
+## ⚙️ Methodology
 
-- `gpu_algo_supported_count.png`: Algorithm support count per GPU
-- `energy_efficiency_best_gpus.png`: Overall efficiency distribution
-- `top5_efficient_gpus.png`: Top 5 most energy-efficient GPU models
-- `gpu_energy_consumption_boxplot.png`: Power usage variation per algorithm
-
----
-
-## Tools Used
-
-- Python 3.9
-- Pandas, NumPy
-- Matplotlib, Seaborn
-- Jupyter Notebook
+- **Cleaning**:
+  - Dropped columns with excessive missing values
+  - Clipped outliers for power usage
+- **Feature Metrics**:
+  - `algo_count`: Supported algorithm count per GPU
+  - `algo_efficiency`: Sum of hashrates / total power consumption
+- **EDA**:
+  - Visual analysis of efficiency distribution
+  - Algorithm support heatmaps
+  - Boxplots of energy usage extremes
 
 ---
 
-## Future Work
+## 🔍 Key Findings
 
-- Add ROI-based analysis combining cost, efficiency, and algorithm difficulty
-- GPU recommendation engine per algorithm
-- Time-series modeling if temporal data becomes available
+- 🔹 **Most Efficient GPU**: `6400` (AMD)
+- 🔹 **Top Algorithm Support**: `3080Ti`, `3090` (NVIDIA)
+- 🔹 **Power-Hungry Algorithms**: `Ethash`, `Octopus`, `Autolykos2`
+- 🔹 **Efficiency Trend**: Some older GPUs offer better efficiency per watt despite lower absolute performance
 
 ---
 
-## Author
+## 🖼️ Visual Outputs (Found in `/images/`)
 
-**Hakan Ataş** – Data Scientist & Crypto Analyst & Blockchain Developer & Trader & Tıpan's father(Dog)❤️🐶
-Project built for technical portfolio and mining hardware evaluation purposes.
+- `gpu_algo_supported_count.png` → Algorithms per GPU
+- `energy_efficiency_best_gpus.png` → Overall energy efficiency
+- `top5_efficient_gpus.png` → Top 5 energy-efficient GPUs
+- `gpu_energy_consumption_boxplot.png` → Power usage outliers
+
+---
+
+## 🧰 Tools Used
+
+- **Python 3.9**
+- **Pandas**, **NumPy** – Data handling
+- **Matplotlib**, **Seaborn** – Visualization
+- **Jupyter Notebook**
+
+---
+
+## 📌 Future Improvements
+
+- ROI-based ranking (cost vs. efficiency vs. hash power)
+- Add market price to evaluate payback period
+- Model performance across algorithm-specific benchmarks
+- Time-based analysis if temporal data becomes available
+
+---
+
+## 👤 Author
+
+**Hakan Ataş**  
+Data Scientist | Blockchain Developer | Crypto Analyst | Trader
+
+Project developed as part of a technical portfolio to evaluate mining hardware based on energy efficiency, performance, and algorithmic breadth.
